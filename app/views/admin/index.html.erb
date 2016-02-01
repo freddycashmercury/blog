@@ -12,8 +12,9 @@
         <%= form_for user do |f| %>
           <td><%= f.text_field :username %></td>
           <td><%= f.text_field :email %></td>
-          <td><%= "placeholder" %></td>
+          <td><%= f.check_box :can_login %></td>
           <td><%= f.check_box :admin %></td>
+          <%= f.submit "Save", :style => "display: none"%>
         <%end%>
       </tr>
     <%end%>
