@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:notice] = "Profile updated"
-      redirect_to @user
+      redirect_to(:back) 
     else
      render 'edit'
     end

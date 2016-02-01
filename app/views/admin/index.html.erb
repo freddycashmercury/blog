@@ -5,7 +5,6 @@
     <th>Email</th>
     <th>Can login</th>
     <th>Admin Status</th>
-    <th>Submit</th>
   </thead>
   <tbody>
     <% @users.each do |user| %>
@@ -15,7 +14,6 @@
           <td><%= f.text_field :email %></td>
           <td><%= "placeholder" %></td>
           <td><%= f.check_box :admin %></td>
-          <td><%= f.submit "Update User" %></td>
         <%end%>
       </tr>
     <%end%>
