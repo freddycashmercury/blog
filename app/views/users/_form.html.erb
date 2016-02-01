@@ -1,0 +1,42 @@
+<% @page_title = "User Account Creation" %>
+<body>
+  <div class="container">
+    <%= form_for @user do |form| %>
+   <form class="form-inline">
+     <div class="row">
+       <div class="form-group">
+         <%= form.label :username, :class => 'col-sm-2 control-label' %>
+         <div class="col-sm-2"> 
+           <%= form.text_field :username, :class => 'form-control' %>
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="form-group">
+         <%= form.label :email, :class => 'col-sm-2 control-label' %>
+         <div class="col-sm-2">
+           <%= form.text_field :email, :class => 'form-control' %>
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="form-group">
+         <%= form.label "Password", :class => 'col-sm-2 control-label' %>
+         <div class="col-sm-2">
+           <%= form.password_field :password, :class => 'form-control' %>
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="form-group">
+         <%= form.label "Password Confirmation", :class => 'col-sm-2 control-label' %>
+         <div class="col-sm-2">
+           <%= form.password_field :password_confirmation, :class => 'form-control' %>
+         </div>
+       </div>
+     </div>
+     <%= form.submit "Create Account", :class => 'submit-button' %>
+   </form>
+ <% end %>
+  </div>
+</body>
