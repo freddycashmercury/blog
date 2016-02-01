@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Account created"
-      render 'show'
+      redirect_to login_path
     else 
       flash[:notice] = "Invalid account information"
       render 'new'

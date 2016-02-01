@@ -4,12 +4,15 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_username(auth_params[:username])
-    if user && user.authenticate(auth_params[:password])
+    if user && user.can_login? && user.authenticate(auth_params[:password])
       flash[:notice] = "You have logged in!"
       login(user)
       redirect_to user_path(user)
-    else
-      flash.now.alert = "Incorrect username or password"
+    elsif user && user.authenticate(auth_params[:password]) && !user.can_login
+      flash.now.alert = "Please contact Cody to approve your account."
+      render "new"
+    else 
+      flash.now.alert = "Incorrect username or password."
       render "new"
     end
   end
