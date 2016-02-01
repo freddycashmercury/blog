@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(auth_params[:password])
       flash[:notice] = "You have logged in!"
       login(user)
-      redirect_to root_path
+      redirect_to user_path(user)
     else
       flash.now.alert = "Incorrect username or password"
       render "new"
@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
   private
 
   def auth_params
-    params.require(:session).permit(:username, :password, :email)
+    params.require(:session).permit(:user, :user_id, :username, :password, :email)
   end
 end
