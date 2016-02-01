@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessor :username, :email 
+  validates :username, presence: true
+  validates :email, presence: true 
   has_secure_password
 end
