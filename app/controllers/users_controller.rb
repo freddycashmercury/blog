@@ -20,7 +20,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
+    if logged_in?
+      @user = User.find(current_user.id)
+    else 
+      redirect_to root_path
+    end
   end
 
   def update
