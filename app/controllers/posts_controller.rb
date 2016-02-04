@@ -9,6 +9,21 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def new
+    @post = Post.new 
+  end
+
+  def create
+    @post = Post.new(post_params)
+    if @post.save
+      flash[:notice] = "Post created!"
+      redirect_to user_posts_path
+    else
+      flash[:notice] = "Something went wrong!"
+      render 'new'
+    end
+  end
+
   private
 
   def post_params

@@ -6,6 +6,11 @@ Rails.application.routes.draw do
    root 'static#index'
 
    resources :users, only: [:new, :show, :create, :edit, :update]
+   
+   resources :users, only: [:show] do
+    resources :posts, only: [:index, :show, :new]
+   end
+
    get "login" => "sessions#new"
    post "login" => "sessions#create"
    delete "logout" => "sessions#destroy"
