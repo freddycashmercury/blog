@@ -1,12 +1,20 @@
 <h1>Posts for <%= @user.username %></h1>
 <% @posts.each do |post| %>
-  <div class="container-fluid">
+  <div class="container">
+    <table class="table">
+      <tr>
   <div class="h1">
     <%= post.title %>
   </div>
-  <p class= text-left>
-    <%= post.body %>
-  </p></div>
+      </tr>
+      <tr>
+  <p class= "text-left">
+  <td><%= post.body %></td>
+  </p>
+      </tr>
+    </table>
+    <%= link_to "See this post!", user_post_path( :user_id, post ) %>
+  </div>
 <% end %>
 
 
