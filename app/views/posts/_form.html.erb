@@ -1,6 +1,6 @@
 <h1>Write a new post.</h1>
 <body>
-    <%= form_for new_user_post_path do |f| %>
+    <%= form_for [:user, @post] do |f| %>
       <form>
           <div class="form-group">
             <%= f.label :title, :class => 'col-sm-2 control-label' %>

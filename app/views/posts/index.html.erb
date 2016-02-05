@@ -1,2 +1,12 @@
 <h1>Posts for <%= @user.username %></h1>
+<% @posts.each do |post| %>
+  <div class="container-fluid">
+  <div class="h1">
+    <%= post.title %>
+  </div>
+  <p class= text-left>
+    <%= post.body %>
+  </p></div>
+<% end %>
+
 
