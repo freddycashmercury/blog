@@ -14,7 +14,7 @@
       </tr>
     </table>
     <%= link_to "See this post!", user_post_path( :user_id, post ) %>
-    <%= link_to "Edit post", edit_user_post_path( :user_id, post ) %>
+    <%= link_to "Edit post", edit_user_post_path( :user_id, post ) if logged_in? && @user == current_user%>
   </div>
 <% end %>
 
