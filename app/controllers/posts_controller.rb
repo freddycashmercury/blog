@@ -24,9 +24,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:notice] = "Post updated"
+      redirect_to user_posts_path
+    else
+      flash[:notice] = "Something went wrong!"
+      redirect_to root_path
+    end
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :title, :body, :id)
+    params.require(:post).permit(:user_id, :title, :body, :id, :user)
   end
 end
