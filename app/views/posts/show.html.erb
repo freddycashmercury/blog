@@ -1,4 +1,5 @@
 <div class="container">
   <h1><%= @post.title %></h1>
   <p class="text-left"><%= @post.body %></p>
+  <%= link_to "Edit Post", edit_user_post_path if @post.user == current_user %>
 </div>
