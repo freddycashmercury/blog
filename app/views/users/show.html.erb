@@ -14,6 +14,6 @@
   </tbody>
 </table>
 
-<%= link_to "Edit Profile", edit_user_path %>
-<%= link_to "Create new blog post!", new_user_post_path(@user) %>
+<%= link_to "Edit Profile", edit_user_path if @user == current_user %>
+<%= link_to "Create new blog post!", new_user_post_path(@user) if @user == current_user %>
 <%= link_to "See blog posts!", user_posts_path(@user) %>

@@ -19,6 +19,7 @@
             <li><%= link_to "Profile", user_path(current_user) if logged_in? %></li>
             <li><%= link_to "Admin Page", admin_path if logged_in? && current_user.admin? %></li>
             <li><%= link_to "My Posts", user_posts_path(current_user.id) if logged_in? %></li>
+            <li><%= link_to "Users!", users_path if logged_in? %></li>
           </ul>       
         </div>
       </div>

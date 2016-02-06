@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'static#index'
 
-   resources :users, only: [:new, :show, :create, :edit, :update]
+   resources :users, only: [:new, :show, :create, :edit, :update, :index]
    
    resources :users do
     resources :posts, only: [:index, :show, :new, :create, :edit, :update]
