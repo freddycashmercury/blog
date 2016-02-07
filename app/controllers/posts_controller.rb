@@ -3,20 +3,20 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @posts = @user.feed.posts
   end
 
   def show
     @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:id])
+    @post = @user.feed.posts.find(params[:id])
   end
 
   def new
-    @post = current_user.posts.new 
+    @post = current_user.feed.posts.new 
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = current_user.feed.posts.build(post_params)
     if @post.save
       flash[:notice] = "Post created!"
       redirect_to user_posts_path
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def edit
     @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:id])
+    @post = @user.feed.posts.find(params[:id])
   end
 
   def update
