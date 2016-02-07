@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204142056) do
+ActiveRecord::Schema.define(version: 20160207040528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feeds", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "feeds", ["user_id"], name: "index_feeds_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -36,5 +46,6 @@ ActiveRecord::Schema.define(version: 20160204142056) do
     t.boolean  "can_login"
   end
 
+  add_foreign_key "feeds", "users"
   add_foreign_key "posts", "users"
 end
