@@ -9,9 +9,11 @@ Rails.application.routes.draw do
    
    resources :users do
      resources :feeds, only: [:show, :new, :create, :edit, :update]
-    resources :posts, only: [:index, :show, :new, :create, :edit, :update]
    end
 
+   resources :users do
+     resources :posts, only: [:show, :new, :create, :edit, :update, :index]
+   end
    get "feeds" => "feeds#index"
    get "login" => "sessions#new"
    post "login" => "sessions#create"

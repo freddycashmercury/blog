@@ -1,4 +1,4 @@
-<h1>Posts for <%= @user.username %></h1>
+<h1><%= @user.feed.name %></h1>
 <% @posts.each do |post| %>
   <div class="container">
     <table class="table">

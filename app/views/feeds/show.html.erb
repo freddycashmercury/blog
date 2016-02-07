@@ -1,4 +1,10 @@
 <div class="container">
-  <h1><%= @feed.name %></h1>
-  <h2><%= @feed.description %></h2>
+  <div class="text-center"><h1><%= @feed.name %></h1></div>
+  <div class="text-center"><h2><%= @feed.description %></h2></div>
 </div>
+
+<% @feed.posts.each do |post| %>
+  <div class="text-center"><%= link_to "#{post.title}", user_post_path(@user, post)  %></div>
+  <div class="text-left body-box"><%= post.body %></div>
+  <hr />
+<% end %>
