@@ -13,8 +13,8 @@
   </p>
       </tr>
     </table>
-    <%= link_to "See this post!", user_post_path( @user, post ) %>
-    <%= link_to "Edit post", edit_user_post_path( @user, post ) if logged_in? && @user == current_user%>
+    <%= link_to "See this post!", user_post_path(@user, post), :class => "btn btn-default" %>
+    <%= link_to "Edit post", edit_user_post_path(@user, post), :class => "btn btn-default" if logged_in? && @user == current_user%>
   </div>
 <% end %>
 
