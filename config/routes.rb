@@ -8,9 +8,11 @@ Rails.application.routes.draw do
    resources :users, only: [:new, :show, :create, :edit, :update, :index]
    
    resources :users do
+     resources :feeds, only: [:show, :new, :create, :edit, :update]
     resources :posts, only: [:index, :show, :new, :create, :edit, :update]
    end
 
+   get "feeds" => "feeds#index"
    get "login" => "sessions#new"
    post "login" => "sessions#create"
    delete "logout" => "sessions#destroy"

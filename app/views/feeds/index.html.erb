@@ -1,0 +1,15 @@
+<table class="table table-striped tabled-bordered">
+  <thead>
+    <th>Name</th>
+    <th>Link</th>
+  </thead>
+  <tbody>
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td><%= feed.name %></td>
+        <td><%= link_to "Blog!", user_feed_path(@user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

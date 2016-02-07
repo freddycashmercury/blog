@@ -18,4 +18,7 @@
   <%= (link_to "Edit Profile", edit_user_path, :class => "btn btn-default") if @user == current_user %>
   <%= (link_to "Create new blog post!", new_user_post_path(@user), :class => "btn btn-default") if @user == current_user %>
   <%= link_to "See blog posts!", user_posts_path(@user), :class => "btn btn-default" %>
+  <%= (link_to "Create blog!", new_user_feed_path(@user), :class => "btn btn-default") if (@user == current_user) && !has_feed?(current_user) %>
+  <%= link_to "Update blog info!", edit_user_feed_path(@user, @user.feed), :class => "btn btn-default" \
+  if (@user == current_user) && has_feed?(current_user) %>
 </div>
