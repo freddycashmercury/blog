@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :correct_user, only: [:new, :create, :update, :edit]
 
   def index
     @user = User.find(params[:user_id])
@@ -6,7 +7,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
   end
 
   def new
@@ -25,7 +27,8 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
   end
 
   def update
@@ -40,6 +43,11 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def correct_user
+    @user = User.find(params[:user_id])
+    (flash[:notice] = "Not authorized") && redirect_to(root_url) unless @user == current_user
+  end
 
   def post_params
     params.require(:post).permit(:user_id, :title, :body, :id, :user)
