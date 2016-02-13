@@ -9,7 +9,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <%= form_for user do |f| %>
+        <%= form_for user, url: user_path(user), method: :patch do |f| %>
           <td><%= f.text_field :username %></td>
           <td><%= f.text_field :email %></td>
           <td><%= f.check_box :can_login %></td>
