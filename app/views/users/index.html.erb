@@ -9,7 +9,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.username %></td>
-        <% if user.feed %>
+        <% if !user.feed.blank? %>
           <td><%= link_to "User Blog!", user_feed_path(user, user.feed) %></td>
         <% else %>
            <td>PLACEHOLDER</td>
